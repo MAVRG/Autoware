@@ -28,11 +28,12 @@ execute_process(
   OUTPUT_VARIABLE ROS_VERSION
   OUTPUT_STRIP_TRAILING_WHITESPACE
 )
-if ("${ROS_VERSION}" MATCHES "(kinetic)")
-	pkg_check_modules(OpenCV REQUIRED opencv-3.2.0-dev)
-else()
-	pkg_check_modules(OpenCV REQUIRED)
-endif()
+#if ("${ROS_VERSION}" MATCHES "(kinetic)")
+#	pkg_check_modules(OpenCV REQUIRED opencv-3.2.0-dev)
+#else()
+#	pkg_check_modules(OpenCV REQUIRED)
+#endif()
+find_package(OpenCV REQUIRED)
 
 execute_process(
   COMMAND pkg-config --variable=host_bins Qt5Core
